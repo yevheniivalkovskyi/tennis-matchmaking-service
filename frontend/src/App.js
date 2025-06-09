@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { ReactKeycloakProvider, useKeycloak } from '@react-keycloak/web';
 import Keycloak from 'keycloak-js';
 
@@ -35,7 +35,7 @@ const RegisterPage = () => {
       <h2>Register</h2>
       <button onClick={() => keycloak.register()}>Create Account</button>
       <p>
-        Already have an account? <Link to="/">Login</Link>
+        Already have an account? <Link to="/login">Login</Link>
       </p>
     </div>
   );
@@ -45,8 +45,9 @@ const App = () => (
   <ReactKeycloakProvider authClient={keycloak} initOptions={{ onLoad: 'check-sso' }}>
     <BrowserRouter>
       <Routes>
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/*" element={<LoginPage />} />
+        <Route path="/*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   </ReactKeycloakProvider>

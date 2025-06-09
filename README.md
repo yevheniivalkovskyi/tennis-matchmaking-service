@@ -35,3 +35,4 @@ docker compose up --build
 ```
 
 The front-end will be available at `http://localhost:3000` and Keycloak at `http://localhost:8080`.
+Open `http://localhost:3000/login` to access the login page or `http://localhost:3000/register` to register a new account.
