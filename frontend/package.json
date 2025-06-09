@@ -7,10 +7,10 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@react-keycloak/web": "^3.4.0",
+    "keycloak-js": "^24.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@react-keycloak/web": "^4.0.2",
-    "keycloak-js": "^24.0.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
